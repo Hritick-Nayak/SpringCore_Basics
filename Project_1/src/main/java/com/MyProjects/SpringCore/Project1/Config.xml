@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- name element is used to refer to this bean element -->
+	<bean name="myProjects" class="com.MyProjects.SpringCore.Projects.MyProjects">
+
+		<property name="projectId">
+			<!-- value is used as an Element -->
+			<value>201</value>
+		</property>
+
+		<!-- value is used as an Attribute -->
+		<property name="projectName" value="Project Blue Book" />
+		
+		<property name="projectAuthors">
+		
+		</property>
+
+	</bean>
+
+	
+
+</beans>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- Inner bean -->
+	<!-- <bean name="employee" class="com.myproject.spring.springcore.constructorinjection.Employee"> 
+		<constructor-arg value="Hritick Nayak" /> <constructor-arg value="234613"></constructor-arg> 
+		<constructor-arg name="address"> <bean name="address" class="com.myproject.spring.springcore.constructorinjection.Address" 
+		p:houseNo="2644" p:street="Xxxz Yyyx Zxzz" p:city="Haldia" /> </constructor-arg> 
+		</bean> -->
+
+	<!-- <bean name="employee" class="com.myproject.spring.springcore.constructorinjection.Employee"> -->
+	<!-- no name is needed in constructor as it takes the value depending on 
+		data type mentioned but we can still give name tag -->
+	<!-- <constructor-arg value="Hritick Nayak" /> <constructor-arg value="234613"></constructor-arg> -->
+	<!-- <constructor-arg name="address" ref="address"></constructor-arg> -->
+	<!-- <constructor-arg> <ref bean="address" /> </constructor-arg> </bean> 
+		<bean name="address" class="com.myproject.spring.springcore.constructorinjection.Address" 
+		p:houseNo="2644" p:street="Xxxz Yyyx Zxzz" p:city="Haldia" /> -->
+
+
+	<bean name="employee"
+		class="com.myproject.spring.springcore.constructorinjection.Employee"
+		c:name="Hritick Nayak" c:empId="234613" c:address-ref="address" />
+
+	<bean name="address"
+		class="com.myproject.spring.springcore.constructorinjection.Address"
+		p:houseNo="2644" p:street="Xxxz Yyyx Zxzz" p:city="Haldia" />
+
+</beans>

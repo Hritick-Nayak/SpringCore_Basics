@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- <bean name="prescription" class="Com.MyProjects.SpringCore.DependencyCheck.DependencyCheck_InnerBeanAndScope.Prescription" 
+		/> -->
+	<!-- <property name="id" value="2001" /> <property name="patientName" value="Hritick 
+		Nayak" /> <property name="medicines"> <list> <value></value> <value></value> 
+		<value></value> </list> </property> </bean> -->
+
+	<!-- <bean name="prescription" class="Com.MyProjects.SpringCore.DependencyCheck.DependencyCheck_InnerBeanAndScope.Prescription" 
+		p:id="2001" /> // not work give error due to required we need to give input 
+		to all the variables -->
+
+	<bean name="prescription"
+		class="Com.MyProjects.SpringCore.DependencyCheck.DependencyCheck_InnerBeanAndScope.Prescription">
+		<property name="id" value="2001" />
+		<property name="patientName" value="Hritick Nayak" />
+		<property name="medicines">
+			<list>
+				<value>Xxxxx</value>
+				<value>Yyyyyyyyy</value>
+				<value>Zzzzzzzz</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean
+		class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+
+</beans>

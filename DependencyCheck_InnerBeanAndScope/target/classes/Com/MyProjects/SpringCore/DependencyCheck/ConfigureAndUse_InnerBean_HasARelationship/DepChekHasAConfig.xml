@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- <bean name="address" class="Com.MyProjects.SpringCore.DependencyCheck.ConfigureAndUse_InnerBean_HasARelationship.Address" 
+		p:hno="9" p:street="Xxx Yyz Zz Yxyyx" p:city="Haldia" /> <bean name="employee" 
+		class="Com.MyProjects.SpringCore.DependencyCheck.ConfigureAndUse_InnerBean_HasARelationship.Employee" 
+		p:id="2001" p:address-ref="address" /> -->
+
+
+	<!-- Inner bean more like nested bean only can be used if it has 'has a' relationship and in referance types
+	      Here employ has 'has a' relationship with address -->
+	<bean name="employee"
+		class="Com.MyProjects.SpringCore.DependencyCheck.ConfigureAndUse_InnerBean_HasARelationship.Employee"
+		p:id="2001">
+		<property name="address">
+			<bean
+				class="Com.MyProjects.SpringCore.DependencyCheck.ConfigureAndUse_InnerBean_HasARelationship.Address"
+				p:hno="9" p:street="Xxx Yyz Zz Yxyyx" p:city="Haldia" />
+		</property>
+
+	</bean>
+	
+	<!-- 
+	Bean scopes : Availaibility of objects in a container
+	
+	1. Singleton - (Default value) Container will create only one object no matter how many times it has been read and used in our application.
+	2. Prototype - Container will create different objects of the type every time that object is used or read in our application.
+	3. request - (revelent for only spring MVC Web applications) When ever a user sends request to web application developed using 
+	             spring spring container will create an object per user request.
+	4. Session - (revelent for only spring MVC Web applications) A session is everything which happens between user login and logout 
+	             ie user first accesses the website till leaves the site then the spring container will create only one object for the 
+	             entire session. if new session is created then another object will be instanceated by spring.
+	5. Globalsession - Spring container will create an object per global context used only in Spring MVC Portlets applications. in 
+	                   portlet applications there could be multiple portlets accross these portlets there will be a global session 
+	                   or global context and the spring container will create one object for the entire global session accross these portlets.
+	 -->
+
+</beans>
